@@ -1,0 +1,11 @@
+[tasks.runserver]
+script = '''
+#!/usr/bin/env bash
+docker build . -t udp_server && docker run -p 127.0.0.1:15006:15006/udp -it --rm --name="udp_server" udp_server
+'''
+
+[tasks.stopserver]
+script = '''
+#!/usr/bin/env bash
+docker kill udp_server
+'''
